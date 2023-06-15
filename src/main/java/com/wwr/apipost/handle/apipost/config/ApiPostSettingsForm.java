@@ -13,6 +13,7 @@ public class ApiPostSettingsForm extends JDialog {
     private JTextField token;
     private JTextField projectId;
     private JTextField remoteUrl;
+    private JTextField workDir;
 
     public ApiPostSettingsForm() {
         contentPane.setPreferredSize(new Dimension(400, 200));
@@ -23,6 +24,7 @@ public class ApiPostSettingsForm extends JDialog {
         settings.setToken(token.getText().trim());
         settings.setProjectId(projectId.getText().trim());
         settings.setRemoteUrl(remoteUrl.getText().trim());
+        settings.setWorkDir(workDir.getText().trim());
         if (urlSettingsForm != null) {
             urlSettingsForm.get(settings);
         }
@@ -38,6 +40,9 @@ public class ApiPostSettingsForm extends JDialog {
         }
         if (StringUtils.isNotBlank(settings.getRemoteUrl())) {
             remoteUrl.setText(settings.getRemoteUrl());
+        }
+        if (StringUtils.isNotBlank(settings.getWorkDir())){
+            workDir.setText(settings.getWorkDir());
         }
         if (urlSettingsForm != null) {
             urlSettingsForm.set(settings);

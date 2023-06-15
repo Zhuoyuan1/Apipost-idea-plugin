@@ -7,7 +7,6 @@ import org.jetbrains.annotations.Nls.Capitalization;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.Objects;
 
 /**
@@ -41,41 +40,35 @@ public class APiPostSettingsConfiguration implements Configurable {
         if (urlSettingsForm == null) {
             urlSettingsForm = new ApiPostPrefixUrlSettingsForm();
         }
-
-        JPanel jPanel = new JPanel();
-        BoxLayout boxLayout = new BoxLayout(jPanel, BoxLayout.Y_AXIS);
-        jPanel.setLayout(boxLayout);
         JPanel contentPane = form.getContentPane();
-        contentPane.setMaximumSize(new Dimension(Integer.MAX_VALUE, contentPane.getPreferredSize().height));
-        jPanel.add(contentPane);
-
-        jPanel.add(Box.createVerticalGlue());
-
-        jPanel.add(urlSettingsForm.getContentPane());
-        return jPanel;
+        contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+        contentPane.add(urlSettingsForm.getContentPane());
+        return contentPane;
     }
 
     @Override
     public boolean isModified() {
         ApiPostSettings settings = ApiPostSettings.getInstance();
         ApiPostSettings apiPostSettings = form.get(urlSettingsForm);
-
+        // 每个输入框逐一比对
         if (!Objects.equals(settings.getRemoteUrl(), apiPostSettings.getRemoteUrl())) {
             return Boolean.TRUE;
         }
         if (!Objects.equals(settings.getToken(), apiPostSettings.getToken())) {
             return Boolean.TRUE;
         }
-        if (!Objects.equals(settings.getProjectId(), apiPostSettings.getProjectId())) {
+        if (!Objects.equals(settings.getWorkDir(), apiPostSettings.getWorkDir())) {
             return Boolean.TRUE;
         }
-        return !Objects.equals(settings.getPrefixUrlList(), apiPostSettings.getPrefixUrlList());
+        if (!Objects.equals(settings.getPrefixUrlList(), apiPostSettings.getPrefixUrlList())) {
+            return Boolean.TRUE;
+        }
+        return !Objects.equals(settings.getProjectId(), apiPostSettings.getProjectId());
     }
 
     @Override
     public void apply() {
         ApiPostSettings apiPostSettings = form.get(urlSettingsForm);
-        urlSettingsForm.get(apiPostSettings);
         ApiPostSettings.storeInstance(apiPostSettings);
     }
 

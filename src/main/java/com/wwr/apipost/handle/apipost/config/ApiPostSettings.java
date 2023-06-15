@@ -47,9 +47,16 @@ public class ApiPostSettings implements PersistentStateComponent<ApiPostSettings
     private String remoteUrl;
 
     /**
-     * 配置服务前置URL
+     * 自定义目录
+     *
+     */
+    private String workDir;
+
+    /**
+     * 服务前置URL配置信息
      */
     private List<PrefixUrl> prefixUrlList;
+
 
     public static ApiPostSettings getInstance() {
         ApiPostSettings settings = ServiceManager.getService(ApiPostSettings.class);

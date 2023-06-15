@@ -1,6 +1,5 @@
 package com.wwr.apipost.action;
 
-import cn.hutool.core.util.StrUtil;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.AtomicDouble;
 import com.intellij.notification.NotificationType;
@@ -210,9 +209,9 @@ public abstract class AbstractAction extends AnAction {
         }
         ApiPostSettings settings = ApiPostSettings.getInstance();
         String currentUrl = getServerPerUrl(data.getModule(), settings);
-        if (StrUtil.isNotBlank(currentUrl)) {
+        if (StringUtils.isNotBlank(currentUrl)) {
             String currentPath = config.getPath();
-            String updatedPath = StrUtil.isNotBlank(currentPath) ? currentUrl + currentPath : currentUrl;
+            String updatedPath = StringUtils.isNotBlank(currentPath) ? currentUrl + currentPath : currentUrl;
             config.setPath(updatedPath);
         }
         config = ApiPostConfig.getMergedInternalConfig(config, data.getLocalDefaultFileCache());
