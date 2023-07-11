@@ -1,15 +1,17 @@
 ## 介绍
 - Apipost IDEA 插件 「Apipost IDEA Helper」现已开源 ！自动解析注解、快速同步文档、高效协作，现在只需一个「Apipost IDEA Helper」！
-- 同时，Apipost发起召集牛逼的Java攻城狮活动！一起自创 IDEA插件，贡献代码即可获得精美礼品，更有机会获得妙控键盘！（活动详情请阅读整个内容）
-
+- 插件市场：https://plugins.jetbrains.com/plugin/22063-apipost-helper
+  
 - Apipost IDEA Helper 集成在于IDEA 中，基于 javadoc（Java）、KDoc（Kotlin）、ScalaDoc（Scala）解析 API 文档。在后端研发完成API编写后，只需在IDEA中右键点击“Upload to Apipost”，即可快速生成完整的API文档并同步到Apipost项目中，无需导出操作。
 
-- 召集牛逼的Java攻城狮，教你做自己的IDEA插件
-![开源github活动海报](https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/cec357e6-d7c0-4476-92d8-dcfd861002fe)
+- 欢迎大家随时共创，提交Pr，我们审核通过，会继续合并优秀作品~~~
 
+## 如何安装（已上架IDEA插件市场，搜索Apipost即可安装使用）
+- IDEA插件市场安装：
+小伙伴们现在可以在IDEA > Settings > Plugins 中自行搜索安装，如下图：
+  <img width="540" alt="640" src="https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/d38c05c7-c143-4503-8a5b-d7d94d5f4ecd">
 
-## 如何安装
-- 下载插件：（目前支持2019--2023版本安装使用哦，下载0619最新日期插件，更新使用）
+- 下载插件安装：（目前支持2020.03--2023版本安装使用哦）
 
 最新插件更新链接：https://pan.baidu.com/s/1wBuMxQFw2ba-a7zldXuB5A 
 提取码：post
@@ -20,17 +22,28 @@
 - 配置方法
 
 安装成功后要将 IDEA 内的项目与 Apipost的项目进行关联。在Apipost 「项目设置」>「对外能力」>「open API」中复制 API-token、项目ID，再进入IDEA设置界面 >「Apipost Config」 中填写 API-token、项目ID。
-![image](https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/587886cb-e8e8-4138-b1d8-b1a3b1dabc53)
+![20230706-181040](https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/89a9c48d-1972-4516-ab08-797a047ad183)
+
 
 如遇到云端地址没有或者不对情况，请填写：https://sync-project.apipost.cn/api/convert
 
-已更新可以导入前置URL域名拼接，示意图如下：
-![导入前置URL0612](https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/37547479-0eae-45a7-a7ea-2687a95b5fca)
-使用流程：点击Add，选择文件目录，填写前置URL，如http://127.0.0.1:8080 等，点击旁边空白处，在点击Apply（必操作项），在点击确认，即可保存前置URL；
+同步API时可选择同步目录：
 
-已更新可以按目录导入，多目录选择导入等
-![目录导入功能](https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/b215d8aa-783b-49fd-b3e8-7d111e702552)
-使用流程：1、在自定义目录中，直接写要上传的目录名称，目录和目录之间用英文逗号隔开；2、在Apipost先新建目录或者查看已有目录，将目录名写入自定义目录中；点击upgrade后，可以筛选导入的目录中；
+可以在 Settings > Apipost Config 「自定义目录」中配置。多目录可以用英文逗号分隔，子目录可以用斜杠分隔。
+
+示例：Test1/Test1.2,Test2
+ 
+   <img width="540" alt="6410" src="https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/ac5dc965-fc10-4a80-8690-08ccdbb6ce71">
+
+前置URL配置：
+
+可以根据所选模块的配置文件获取对应的访问前缀，没有对应的配置文件，则需要自己填写，若配置文件中未配置端口号以及访问总路径则使用默认端口号8080。
+
+配置方法：
+
+同样在Settings > Apipost Config 「前置URL配置」中配置，配置完成后，同步API时，会根据选择的目录将Perfix Url自动填入到Apipost接口中。
+
+   <img width="540" alt="6430" src="https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/840c8816-3e06-43a8-934e-aaf50c2773b1">
 
 - 上传文件
 
@@ -59,33 +72,17 @@
 ## 问题反馈
 - 现存问题：
 
-1、暂时不支持按目录导入，选择目录导入----已修复，可在IDEA中新建目录导入，感谢Java攻城狮~JouTao
+1、Controller太大了，导致传不上去；
 
-2、暂时不支持23.1以前版本安装，版本兼容问题，21.3之后插件可安装，但无法上传，21.2之前版本插件安装不了；----已修复，可支持19--21.3之间版本的IDEA了，感谢Java攻城狮~Linyuan
+2、IDEA接口更新问题，如果Api在Apipost总url有更改，就会更新一个新的接口；----已验证，更新跟随url变更，url不变则不会新增接口，会在原接口基础上更新；
 
-3、Api导入URL没有拼域名----已修复，可在IDEA中按服务输入前缀URL并拼入接口URL中，感谢Java攻城狮~Linyuan
+3、插件的代码,clone的时候异常了；出现在这种controller就会异常,同步不了接口；
+![e41d37e7-de04-4a96-bfb6-1cb3677dc057](https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/a6d789a1-a0d8-4cf1-893b-97711b1195d4)
 
-4、项目ID不能保存----已修复，感谢Java攻城狮~Zhuoyuan1 
-
-5、暂时不支持导入Apipost已存在的目录中----已修复，可在Apipost中新建目录，从IDEA直接导入新建的目录中，感谢Java攻城狮~JouTao
-
-6、IDEA导入Api，参数格式是application/x-www-form-urlencoded，而不是From-data，需排查插件书写格式问题或者是否是个BUG；
-
-7、不支持注释来提取注释的目录名字导入；
-
-8、IDEA接口更新问题，如果Api在Apipost总url有更改，就会更新一个新的接口；
 
 - 以上是我们个人使用用户反馈，欢迎牛逼的Java攻城狮，一起完善好产品，做出自己的IEDA插件，让开发测试更简单；
 ## 联系我们
-- 活动规则：
-
-1、提交自己设计的IDEA插件功能；
-
-2、提交修复Pr BUG；
-
-Apipost官方审核通过合并后，即为参与成功；
-
-- 活动详情与报名，请扫码二维码↓
+- 请扫码二维码↓
 
 ![image](https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/31d77f0d-ab63-4d1b-bf28-242fa8306069)
    
@@ -101,6 +98,12 @@ Apipost官方审核通过合并后，即为参与成功；
  - 2023/06/14 发布：合并目录导入和前置URL功能，修复合并BUG----感谢Java攻城狮~Linyuan
  - 2023/06/15 发布：合并IDEA报错configfile的BUG修复----感谢Java攻城狮~Liuhaoduoduo
  - 2023/06/19 发布：合并bug修复和可支持19--21.3之间版本的IDEA了----感谢Java攻城狮~Linyuan
- - 
+ - 2023/06/26 发布：IDEA应用市场插件Api兼容问题修复----感谢Java攻城狮~Linyuan
+ - 2023/06/26 发布：前置URL通过YML文件配置开发环境----感谢Java攻城狮~JouTao
    
  ## 特别鸣谢
+ - 感谢Java攻城狮~Zhuoyuan1：https://github.com/Zhuoyuan1/Apipost-idea-plugin
+ - 感谢Java攻城狮~JouTao：https://github.com/JouTao/Apipost-idea-plugin
+ - 感谢Java攻城狮~Linyuan：https://github.com/linyuan-design/Apipost-idea-plugin
+ - 感谢Java攻城狮~Liuhaoduoduo：https://github.com/liuhaoduoduo/Apipost-idea-plugin
+ - 感谢Java攻城狮~heart-flowing
