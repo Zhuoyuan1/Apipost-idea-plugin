@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.wwr"
-version = "1.6-SNAPSHOT"
+version = "1.7.5-SNAPSHOT"
 
 repositories {
   mavenCentral()
@@ -31,7 +31,7 @@ dependencies {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-  version.set("2020.3")
+  version.set("2023.1")
   type.set("IC") // Target IDE Platform
   sandboxDir.set("${project.rootDir}/.sandbox")
   updateSinceUntilBuild.set(false)
@@ -48,7 +48,7 @@ tasks {
 
   patchPluginXml {
     sinceBuild.set("203")
-    untilBuild.set("231.*")
+    untilBuild.set("232.*")
   }
 
   buildSearchableOptions {

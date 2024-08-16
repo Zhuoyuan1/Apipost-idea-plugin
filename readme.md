@@ -1,6 +1,6 @@
 ## 介绍
 - Apipost IDEA 插件 「Apipost IDEA Helper」现已开源 ！自动解析注解、快速同步文档、高效协作，现在只需一个「Apipost IDEA Helper」！
-- 插件市场：https://plugins.jetbrains.com/plugin/22063-apipost-helper
+
   
 - Apipost IDEA Helper 集成在于IDEA 中，基于 javadoc（Java）、KDoc（Kotlin）、ScalaDoc（Scala）解析 API 文档。在后端研发完成API编写后，只需在IDEA中右键点击“Upload to Apipost”，即可快速生成完整的API文档并同步到Apipost项目中，无需导出操作。
 
@@ -72,12 +72,11 @@
 ## 问题反馈
 - 现存问题：
 
-1、Controller太大了，导致传不上去；
+1、IDEA接口更新问题，如果Api在Apipost总url有更改，就会更新一个新的接口；----已验证，更新跟随url变更，url不变则不会新增接口，会在原接口基础上更新；
 
-2、IDEA接口更新问题，如果Api在Apipost总url有更改，就会更新一个新的接口；----已验证，更新跟随url变更，url不变则不会新增接口，会在原接口基础上更新；
+2、字段为list<str>时候，上传Apipost参数展示bug
 
-3、插件的代码,clone的时候异常了；出现在这种controller就会异常,同步不了接口；
-![e41d37e7-de04-4a96-bfb6-1cb3677dc057](https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/a6d789a1-a0d8-4cf1-893b-97711b1195d4)
+[图片]![image](https://github.com/Apipost-Team/Apipost-idea-plugin/assets/134056636/35a58880-ab85-40a5-b0f0-cf35e1a2ec15)
 
 
 - 以上是我们个人使用用户反馈，欢迎牛逼的Java攻城狮，一起完善好产品，做出自己的IEDA插件，让开发测试更简单；
@@ -88,7 +87,7 @@
    
  ## 进度更新
  - 已提交的Java攻城狮们，点击这里登记提交您的信息哦，我们会在进度中更新，审核合并后，会在特别鸣谢中公示；
- - 信息登记：https://www.wjx.cn/vm/QCafRUd.aspx# 
+  
  
  - 2023/05/26 发布：合并Pr项目ID不能保存的问题----感谢Java攻城狮~Zhuoyuan1 
  - 2023/05/31 发布：合并支持IDEA中新建目录导入的问题----感谢Java攻城狮~JouTao
